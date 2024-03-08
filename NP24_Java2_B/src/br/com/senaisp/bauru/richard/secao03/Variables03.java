@@ -15,7 +15,6 @@ public class Variables03 {
         doubleVar2 = 2.1;
         doubleVar3 = 3.1;
         doubleVar4 = 4.1;
-        
     
         String stringVar1 = "1";
         String stringVar2 = "2";
