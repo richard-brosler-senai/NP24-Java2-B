@@ -51,7 +51,7 @@ public class Atividade01 {
 					null,
 					"Digite o valor percentual aqui.");
 			double dissidio = Double.parseDouble(xDissidio);
-			double novoSalario = salario * dissidio / 100;
+			double novoSalario = salario * (1 + dissidio / 100);
 			String[] opcoesSair = {"Casa da Sogra","Barzinho do Zé", 
 							   "Campos do Jordão", "Bora Bora"};
 			//Pergunta 5
