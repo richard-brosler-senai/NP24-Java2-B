@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class ExemplosJoptionPane01 {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Para sim ou não

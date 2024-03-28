@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Atividade01 {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		//Pergunta 0
 		boolean resp = JOptionPane 
@@ -63,6 +64,7 @@ public class Atividade01 {
 					opcoesSair,
 					opcoesSair[1]);
 			//Pergunta 6
+			@SuppressWarnings("unused")
 			String prato = (String)JOptionPane.showInputDialog(null,
 					"Qual seu prato preferido?",
 					"Show do Milhão",
@@ -89,6 +91,7 @@ public class Atividade01 {
 						"Joãozinho Dedos de Águia" 
 						};
 			//Pergunta 8
+			@SuppressWarnings("unused")
 			String primeiroProg = (String)JOptionPane.showInputDialog(null,
 					"Quem foi o primeiro(a) programador(a) da história?",
 					"Show do Milhão",

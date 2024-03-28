@@ -3,7 +3,8 @@ package br.com.senaisp.bauru.richard.secao05;
 import javax.swing.JOptionPane;
 
 public class Input02 {
-    public static void main(String[] args) {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) {
         
         JOptionPane.showMessageDialog(null,
                 "There's no input here, just a message",
