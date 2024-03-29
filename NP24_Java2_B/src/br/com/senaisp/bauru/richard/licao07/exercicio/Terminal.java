@@ -84,14 +84,14 @@ public class Terminal {
 	
 	public void resgatarPremio(Cartao ct, int nrCategoria) {
 		CategoriaPremio apoio = null;
-		
+		System.out.println("Operação: Resgatar prêmio");
+		System.out.println("-".repeat(20));
 		switch(nrCategoria) {
 		case 1: apoio = categoria01; break;
 		case 2: apoio = categoria02; break;
 		case 3: apoio = categoria03; break;
 		default: System.out.println("Categoria Inválida!");
 		}
-		
 		if (apoio != null) {
 			int qtdNTicket = apoio.getQtdeTickets();
 			if (ct.getTickets()>=qtdNTicket && 
