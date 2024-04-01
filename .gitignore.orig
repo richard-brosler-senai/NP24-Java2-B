@@ -24,4 +24,9 @@ hs_err_pid*
 replay_pid*
 
 #dados do Eclipse
+<<<<<<< HEAD
 .metadata
+=======
+.metadata
+# teste
+>>>>>>> c6ccd9ea1c1ad10c3d2c419b94de79b69f7916a2
