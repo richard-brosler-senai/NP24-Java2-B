@@ -45,9 +45,10 @@ public class Carta {
 					+  "║  §  ║\n" //3
 					+  "║   ##║\n" //4
 					+  "╚═════╝\n";//5
-		apoio = apoio.replaceFirst("##", getNumero());
+		String br = valor == 9 ? "" : " ";//lembrando que 9 é indice
+		apoio = apoio.replaceFirst("##", getNumero() + br);
 		apoio = apoio.replace("§", getNaipe());
-		apoio = apoio.replaceFirst("##", getNumero());
+		apoio = apoio.replaceFirst("##", br + getNumero());
 		return apoio;
 	}
 }
