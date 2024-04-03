@@ -83,4 +83,31 @@ public class ProdutoSimples {
 		//
 		return ret;
 	}
+	
+	public static ProdutoSimples findByPK(int cod) throws Exception {
+		ProdutoSimples ret = new ProdutoSimples();
+		if (cod>0) {
+			//Preparando a instrução de select
+			PreparedStatement stmt = ret.conn
+				.prepareStatement("select id, descricao, saldo, custo"
+						+ " from produto where id = ?");
+			//Colocando o parametro da query
+			stmt.setInt(1, cod);
+			//Executando a query
+			ResultSet rs = stmt.executeQuery();
+			//Verificando se encontrou algo
+			if (rs.next()) {
+				ret.setId(rs.getInt(1));
+				ret.setDescricao(rs.getString(2));
+				ret.setSaldo(rs.getInt(3));
+				ret.setCusto(rs.getDouble(4));
+			} else {
+				throw new Exception("Registro não encontrado!");
+			}
+		} else {
+			throw new Exception("O código deve ser maior que zero!");
+		}
+		return ret;
+	}
+
 }
