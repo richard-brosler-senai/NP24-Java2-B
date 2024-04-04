@@ -30,31 +30,80 @@ public class TesteProdutoSimples {
 	}
 
 	private static void excluirProduto(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Exclusão de Produtos");
+		ProdutoSimples prd = pesquisarProduto(sc);
+		//Confirmação de exclusão
+		System.out.println("Deseja cancelar a exclusão? (S/N)");
+		String res = sc.nextLine();
+		//Estou perguntando se quer CANCELAR a EXCLUSÃO!!
+		if (res.equalsIgnoreCase("N")) {
+			try {
+				prd.apagar();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}//fim do catch
+		}//fim do if
+		//Voltando para o menu
+		System.out.println("Digite algo para voltar ao menu");
+		sc.nextLine(); //captura do último enter numérico
 	}
 
 	private static void alterarProduto(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Alteração de produto");
+		ProdutoSimples prd = pesquisarProduto(sc);
+		if (prd!=null) {
+			System.out.println("Digite a descrição do produto:");
+			prd.setDescricao(sc.nextLine());
+			
+			System.out.println("Digite o saldo do produto:");
+			prd.setSaldo(sc.nextInt());
+			
+			System.out.println("Digite o custo do produto:");
+			prd.setCusto(sc.nextDouble());
+			//Como o último campo foi número, capturamos o enter
+			sc.nextLine();
+			System.out.println("Confirma a alteração? (S/N)");
+			String conf = sc.nextLine();
+			if (conf.equalsIgnoreCase("S")) {
+				try {
+					prd.gravar();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}//fim do if de confirmação
+			
+		}//fim do if de pesquisa produto
+		
+		//Voltando para o menu
+		System.out.println("Digite algo para voltar ao menu");
+		sc.nextLine(); //captura do último enter numérico
 	}
 
 	private static void consultarProduto(Scanner sc) {
 		System.out.println("Consulta de produtos");
-		System.out.println("Digite o código do produto a pesquisar:");
-		int cod = sc.nextInt();
 		
-		try {
-			//Pesquisando o produto
-			ProdutoSimples prd = ProdutoSimples.findByPK(cod);
-			//Mostrando o produto
-			System.out.println(prd);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		pesquisarProduto(sc);
 		
 		//Pausa para voltar para o menu
 		System.out.println("Digite algo para voltar ao menu");
 		sc.nextLine(); //captura do último enter numérico
 		sc.nextLine(); //pausa para voltar
+	}
+
+	private static ProdutoSimples pesquisarProduto(Scanner sc) {
+		System.out.println("Digite o código do produto a pesquisar:");
+		int cod = sc.nextInt();
+		sc.nextLine(); //captura do enter
+		try {
+			//Pesquisando o produto
+			ProdutoSimples prd = ProdutoSimples.findByPK(cod);
+			//Mostrando o produto
+			System.out.println(prd);
+			return prd;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 
 	private static void criarProduto(Scanner sc) {
