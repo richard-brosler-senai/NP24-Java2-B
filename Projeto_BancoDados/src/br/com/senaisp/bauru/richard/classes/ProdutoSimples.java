@@ -60,6 +60,31 @@ public class ProdutoSimples {
 			   "Custo: " + getCusto();
 	}
 	//
+	public void gravar() throws SQLException {
+		PreparedStatement stmt = conn.
+			prepareStatement("update produto set descricao=?,"
+					+ "saldo=?, custo=? where id = ?");
+		//preenchendo os parametros
+		stmt.setString(1, getDescricao());
+		stmt.setInt(2, getSaldo());
+		stmt.setDouble(3, getCusto());
+		stmt.setInt(4, getId());
+		//Disparando a query
+		int nRegs = stmt.executeUpdate();
+		System.out.println(nRegs + " registro(s) afetado(s)!");
+	}
+	
+	public void apagar() throws SQLException {
+		PreparedStatement stmt = conn.
+				prepareStatement("delete from produto where id = ?");
+		//preenchendo os parametros
+		stmt.setInt(1, getId());
+		//Disparando a query
+		int nRegs = stmt.executeUpdate();
+		System.out.println(nRegs + " registro(s) afetado(s)!");
+	}
+	
+	//
 	public static ProdutoSimples create(String des,
 			int sal, double cus) throws SQLException {
 		ProdutoSimples ret = new ProdutoSimples();
