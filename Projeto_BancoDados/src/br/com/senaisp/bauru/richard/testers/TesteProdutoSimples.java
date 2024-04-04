@@ -38,10 +38,27 @@ public class TesteProdutoSimples {
 	}
 
 	private static void consultarProduto(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Consulta de produtos");
+		System.out.println("Digite o código do produto a pesquisar:");
+		int cod = sc.nextInt();
+		
+		try {
+			//Pesquisando o produto
+			ProdutoSimples prd = ProdutoSimples.findByPK(cod);
+			//Mostrando o produto
+			System.out.println(prd);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		//Pausa para voltar para o menu
+		System.out.println("Digite algo para voltar ao menu");
+		sc.nextLine(); //captura do último enter numérico
+		sc.nextLine(); //pausa para voltar
 	}
 
 	private static void criarProduto(Scanner sc) {
+		sc.nextLine();//Captura do enter do menu
 		System.out.println("Cadastramento de produto");
 
 		System.out.println("Digite a descrição do produto:");
@@ -64,7 +81,8 @@ public class TesteProdutoSimples {
 
 		//Pausa para voltar ao menu
 		System.out.println("Digite enter para voltar ao menu");
-		sc.nextLine();
+		sc.nextLine(); //para capturar o último enter numérico
+		sc.nextLine(); //para voltar ao menu
 	}
 
 }

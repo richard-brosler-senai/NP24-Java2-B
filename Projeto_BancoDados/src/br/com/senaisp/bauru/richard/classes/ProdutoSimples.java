@@ -52,6 +52,14 @@ public class ProdutoSimples {
 		this.custo = custo;
 	}
 	//
+	@Override
+	public String toString() {
+		return "Id: " + getId()+  "\n"+
+			   "Descrição: " + getDescricao() + "\n"+
+			   "Saldo: " + getSaldo() + "\n"+
+			   "Custo: " + getCusto();
+	}
+	//
 	public static ProdutoSimples create(String des,
 			int sal, double cus) throws SQLException {
 		ProdutoSimples ret = new ProdutoSimples();
