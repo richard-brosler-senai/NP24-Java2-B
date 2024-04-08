@@ -13,7 +13,7 @@ public class JavaFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         //remove code from here 
-	Button btn = new Button();
+    	Button btn = new Button();
         btn.setText("Say 'HelloWorld'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
