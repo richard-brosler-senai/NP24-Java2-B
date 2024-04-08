@@ -8,6 +8,9 @@ public class Carta {
 	private int valor;
 	private String numero;
 	//Constructor
+	public Carta() {
+		
+	}
 	public Carta(int nap, int num) {
 		//Tratando o Naipe para que seja de 0 a 3
 		if (nap<0 || nap>3) {
