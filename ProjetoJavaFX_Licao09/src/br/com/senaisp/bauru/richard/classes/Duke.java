@@ -43,6 +43,14 @@ public class Duke extends Group {
 		setOnMouseClicked((me)->{
 			tom.play();
 		});
+		//Criando o evento de arrastar o item
+		setOnMouseDragged((me)->{
+			double largura = this.getBoundsInLocal().getWidth()/2;
+			double altura = this.getBoundsInLocal().getHeight()/2;
+			//Posionando o personagem na scena
+			setLayoutX(me.getSceneX()-largura);
+			setLayoutY(me.getSceneY()-altura);
+		});
 	}
 
 }
